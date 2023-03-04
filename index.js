@@ -1,4 +1,5 @@
 require("dotenv").config();
+const imb = require("./src/common/utils/is_my_bot");
 
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
 
@@ -19,7 +20,7 @@ client.once("ready", () => {
 client.on("interactionCreate", (interaction) => {});
 
 client.on("messageCreate", (message) => {
-	if (isMyBot(message.author.id) == false) {
+	if (imb.isMyBot(message.author.id) == false) {
 		message.react("❤️");
 	}
 	if (message.content === "deploy.now") {
@@ -28,9 +29,5 @@ client.on("messageCreate", (message) => {
 });
 
 client.login(process.env.BOT_TOKEN).then(() => {});
-
-function isMyBot(id) {
-	return id === process.env.OAUTH_CLIENT_ID;
-}
 
 console.log("proj run => " + process.cwd());
