@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:watch": "nodemon index.js",
+    "start:dev": "ENV=dev node index.js",
+    "start:watch:dev": "ENV=dev nodemon index.js",
+    "start:prod": "ENV=prod node index.js",
+    "start:watch:prod": "ENV=prod nodemon index.js"
   },
   "keywords": [],
   "author": "",

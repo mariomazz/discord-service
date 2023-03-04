@@ -1,8 +1,10 @@
-require("dotenv").config();
+const env = `env/${process.env.ENV || ""}.env`;
+require("dotenv").config({ path: env });
+console.log("START: " + env);
+console.log("run : " + process.cwd());
+
 const imb = require("./src/common/utils/is_my_bot");
-
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
-
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -29,5 +31,3 @@ client.on("messageCreate", (message) => {
 });
 
 client.login(process.env.BOT_TOKEN).then(() => {});
-
-console.log("proj run => " + process.cwd());
