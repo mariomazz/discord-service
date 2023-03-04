@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
 
 const client = new Client({
@@ -31,3 +32,5 @@ client.login(process.env.BOT_TOKEN).then(() => {});
 function isMyBot(id) {
 	return id === process.env.OAUTH_CLIENT_ID;
 }
+
+console.log("proj run => " + process.cwd());
