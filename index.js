@@ -3,6 +3,8 @@ require("dotenv").config({ path: env });
 console.log("START: " + env);
 console.log("run : " + process.cwd());
 
+const express = require("express");
+const app = express();
 const PostsService = require("./src/features/posts/application/posts_service");
 const PostsRepository = require("./src/features/posts/data/posts_repository");
 const imb = require("./src/common/utils/is_my_bot");
@@ -14,11 +16,11 @@ const client = new Client({
 		GatewayIntentBits.GuildMessages,
 		GatewayIntentBits.DirectMessages,
 		GatewayIntentBits.MessageContent,
-        GatewayIntentBits.DirectMessageTyping,
-        GatewayIntentBits.GuildMessageReactions,
-        GatewayIntentBits.GuildWebhooks,
+		GatewayIntentBits.DirectMessageTyping,
+		GatewayIntentBits.GuildMessageReactions,
+		GatewayIntentBits.GuildWebhooks,
 	],
-	partials: [Partials.Channel,Partials.Message],
+	partials: [Partials.Channel, Partials.Message],
 });
 
 client.once("ready", () => {
@@ -61,3 +63,11 @@ client.on("messageDelete", async (message) => {
 });
 
 client.login(process.env.BOT_TOKEN).then(() => {});
+
+app.get("/", (req, res) => {
+	res.send("Service enabled");
+});
+
+app.listen(process.env.HTTP_PORT, () => {
+	console.log(`Example app listening on port ${process.env.HTTP_PORT}`);
+});
