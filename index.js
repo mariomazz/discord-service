@@ -1,7 +1,7 @@
-const env = `env/${process.env.ENV || ""}.env`;
+/* const env = `env/${process.env.ENV || ""}.env`;
 require("dotenv").config({ path: env });
 console.log("START: " + env);
-console.log("run : " + process.cwd());
+console.log("run : " + process.cwd()); */
 
 const express = require("express");
 const app = express();
