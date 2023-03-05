@@ -64,6 +64,8 @@ client.on("messageDelete", async (message) => {
 
 client.login(process.env.BOT_TOKEN).then(() => {}); */
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
 	res.send("Service enabled");
 });
