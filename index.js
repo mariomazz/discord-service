@@ -68,6 +68,6 @@ app.get("/", (req, res) => {
 	res.send("Service enabled");
 });
 
-app.listen(process.env.HTTP_PORT, () => {
-	console.log(`Example app listening on port ${process.env.HTTP_PORT}`);
+app.listen(process.env.PORT, () => {
+	console.log(`Example app listening on port ${process.env.PORT}`);
 });
