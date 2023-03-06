@@ -1,11 +1,9 @@
-/* const env = `env/${process.env.ENV || ""}.env`;
+const env = `env/${process.env.ENV || ""}.env`;
 require("dotenv").config({ path: env });
 console.log("START: " + env);
-console.log("run : " + process.cwd()); */
+console.log("run : " + process.cwd());
 
-const express = require("express");
-const app = express();
-/* const PostsService = require("./src/features/posts/application/posts_service");
+const PostsService = require("./src/features/posts/application/posts_service");
 const PostsRepository = require("./src/features/posts/data/posts_repository");
 const imb = require("./src/common/utils/is_my_bot");
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
@@ -62,14 +60,4 @@ client.on("messageDelete", async (message) => {
 	await message.channel.send("Stop delete messages!");
 });
 
-client.login(process.env.BOT_TOKEN).then(() => {}); */
-
-app.use(express.json());
-
-app.get("/", (req, res) => {
-	res.send("Service enabled");
-});
-
-app.listen(process.env.PORT || 3000, () => {
-	console.log(`Example app listening on port ${process.env.PORT || 3000}`);
-});
+client.login(process.env.BOT_TOKEN).then(() => {});
